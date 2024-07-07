@@ -1,21 +1,28 @@
-//Thu Jul 04 2024 12:44:38 GMT+0000 (Coordinated Universal Time)
+//Sun Jul 07 2024 06:55:13 GMT+0000 (Coordinated Universal Time)
 //Base:https://github.com/echo094/decode-js
 //Modify:https://github.com/smallfawn/decode_action
-let obj = {
-  "state": null,
-  "subscription_android_monthly": "com.surgeapp.premium.monthly",
-  "pricing_group": null,
-  "subscription_android_quarterly": "com.surgeapp.premium.quarterly",
-  "subscription_android_weekly": "premium_weekly_1",
-  "premium": true,
-  "subscription_ios_weekly": "com.surgeapp.surge.premium.lvl1.weekly",
-  "expiration": "2099-09-09",
-  "subscription_ios_yearly": "com.surgeapp.surge.premium.lvl2.yearly",
-  "subscription_ios_quarterly": "com.surgeapp.surge.premium.lvl2.quarterly",
-  "subscription_android_yearly": "com.surgeapp.premium.yearly",
-  "subscription_ios_monthly": "com.surgeapp.surge.premium.lvl1.monthly"
-};
+if (typeof $response !== "undefined" && $response.body) {
+  let body = JSON.parse($response.body);
+  function modifyObject(_0x549159) {
+    for (let _0x67e54b in _0x549159) {
+      if (_0x549159.hasOwnProperty(_0x67e54b)) {
+        if (typeof _0x549159[_0x67e54b] === "object" && _0x549159[_0x67e54b] !== null) modifyObject(_0x549159[_0x67e54b]);else switch (_0x67e54b) {
+          case "is_free":
+            _0x549159[_0x67e54b] = 1;
+            break;
+          case "is_vip":
+            _0x549159[_0x67e54b] = 0;
+            break;
+          case "free_status":
+            _0x549159[_0x67e54b] = 1;
+            break;
+        }
+      }
+    }
+  }
+  modifyObject(body);
+  $response.body = JSON.stringify(body);
+}
 $done({
-  "body": JSON.stringify(obj),
-  "status": 200
+  "body": $response.body
 });

@@ -1,4 +1,4 @@
-//Tue Jul 09 2024 08:49:49 GMT+0000 (Coordinated Universal Time)
+//Tue Jul 09 2024 12:16:08 GMT+0000 (Coordinated Universal Time)
 //Base:https://github.com/echo094/decode-js
 //Modify:https://github.com/smallfawn/decode_action
 const $ = new Env("阿里云社区"),
